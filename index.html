@@ -1,0 +1,1696 @@
+
+
+<!doctype html>
+<html lang="en" class="en_US $userStatus mf1auction">
+<head>
+<meta charset="UTF-8">
+<title>F1 Authentics | Your premier source for authentic F1® memorabilia</title>
+<meta name="title" content="">
+<meta name="description" content="Your premier source for authentic F1® memorabilia">
+<meta name="keywords" content="">
+<meta property="og:title" content="F1 Authentics | Your premier source for authentic F1® memorabilia" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.f1authentics.com" />
+<link rel="canonical" href="https://www.f1authentics.com" />
+<meta property="og:description" content="Your premier source for authentic F1® memorabilia" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="mziHtWhYD3peTNDoLEEmu_2RWjj9YRPXyH57AmKCZWg" />
+<link rel="shortcut icon" href='https://vafloc01.s3.amazonaws.com/WBStatic/site1103161/dist/img/default-ico.png' />
+<link rel="stylesheet" type="text/css" href="https://vafloc01.s3.amazonaws.com/WBStatic/site1103161/dist/css/style-f1.css?v=1.3">
+<link rel="stylesheet" href="./styles1.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" />
+<!--[if lt IE 9]>
+      <link rel="stylesheet" type="text/css" href="https://vafloc01.s3.amazonaws.com/WBStatic/site1103161/css/ie8.css">
+    <![endif]-->
+<!--[if lt IE 9]>
+    <script src="https://vafloc01.s3.amazonaws.com/WBStatic/site1103161/js/html5.js"></script>
+  <![endif]-->
+<script>
+    // Config
+    var STATIC_PATH = "https://vafloc01.s3.amazonaws.com/WBStatic/site1103161";
+  </script>
+<script>
+
+var pageProps = {};
+window.pageName = "";
+
+pageProps.pageName = "Home";
+
+
+
+// Categories, facets, promo groups
+
+var catsList = [];
+
+
+pageProps.catsList = catsList;
+pageProps.cats = catsList.join('/');
+
+var facetsList = [];
+
+pageProps.facetsList = facetsList;
+pageProps.facets = facetsList.join('+');
+
+var promoGroupsList = [];
+
+pageProps.promoGroupsList = promoGroupsList;
+pageProps.promoGroups = promoGroupsList.join('+');
+
+  pageProps.pageName = '';
+
+messages = [];
+
+
+pageProps.messages = messages;
+
+</script>
+<script>
+
+window.dataLayer = window.dataLayer || [];
+
+dataLayer.push ({
+  "venueType": "prod",
+  "lang": "en_US",
+  "pageName": pageProps.pageName,
+  "pageId": "home",
+  "section": "",
+  "subsection": "",
+  "cats": pageProps.cats,
+  "facets": pageProps.facets,
+  "promoGroups": pageProps.promoGroups,
+  "parameters": pageProps.parameters,
+  "query": pageProps.query,
+  "messages": pageProps.messages,
+});
+
+// Impressions
+
+// "id":"$auction.id",
+// "name":"$auction.getTitle($selectedLang, 250)",
+// "price":"$auction.currentBid",
+// "brand":"Bvlgari",
+// "category":"Men/Clothing/T-Shirts",
+// "position":0,
+// "variant":"Blue",
+// "list":"Category page"
+
+
+// ECommerce
+
+
+
+
+</script>
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WM9ZG59');</script>
+
+</head>
+<script type="text/javascript" charset="utf-8">
+		var vafBidHistCount = 0;
+
+		// Process auction updates using the json data received from the call
+		var jsDefaultProcessAuctionUpdates = function(jsData) {
+
+			if (jsData.jsStatus == "success") {
+				if (typeof jsData.auctionUpdateMap!="undefined") {
+
+					var pIdx = 1;
+					jQuery.each(jsData.auctionUpdateMap, function(i, auctionRef) {
+
+						var jqBidAmtName = "#" + auctionRef.aucRef + "BidAmt";
+						var jqBidCountName = "#" + auctionRef.aucRef + "BidCount";
+						var jqAucVersionName = "#" + auctionRef.aucRef + "AucVersion";
+						var jqAucClosingMillisRef = "#" + auctionRef.aucRef + "ClosingSec";
+						var jqFinalStatusName = "#" + auctionRef.aucRef + "FinalStatus";
+						var currentBidFormatted = formatNumber(auctionRef.currentBid, true, 2);
+						jQuery(jqBidAmtName).html(currentBidFormatted);
+						jQuery(jqBidCountName).html(auctionRef.bidCount);
+						jQuery(jqFinalStatusName).html(auctionRef.finalizeStatus);
+						jsAucEndTimeMillisGMT[jqAucClosingMillisRef] = auctionRef.endTimeMillisGMT;
+						jsAucFinalStatus[jqFinalStatusName] = auctionRef.finalizeStatus;
+						pIdx = pIdx + 1;
+
+	    			});
+
+	    			jsAucRefMax = pIdx;
+				}
+	    	}
+
+		}
+
+		function formatNumber(numberToFormat, addCommas, decimalPlaces) {
+		numberToFixed = numberToFormat.toFixed(decimalPlaces);
+		numberToFixed += '';
+		x = numberToFixed.split('.');
+		x1 = x[0];
+		x2 = x.length > 1 ? '.' + x[1] : '';
+		var rgx = /(\d+)(\d{3})/;
+		while (rgx.test(x1)) {
+			x1 = x1.replace(rgx, '$1' + ',' + '$2');
+		}
+		return x1 + x2;
+}
+
+		function padNum (num) {
+			if (num < 10) {
+				return "0" + num;
+			}
+			else {
+				return num;
+			}
+		}
+
+		function secondsToDaysHourMinSec(remSeconds) {
+		  var days, hours, minutes, seconds;
+		  seconds = remSeconds;
+		  minutes = Math.floor(seconds / 60);
+		  seconds = seconds % 60;
+		  hours = Math.floor(minutes / 60);
+		  minutes = minutes % 60;
+		  days = Math.floor(hours / 24);
+		  hours = hours % 24;
+		  return "" + padNum(days) + " days " + padNum(hours) + ":" + padNum(minutes) + ":" + padNum(seconds);
+		}
+
+		// Process auction time tick
+		var jsDefaultProcessAuctionTick = function(aucClosingSecondRef, aucClosingSecond, aucFinalStatus) {
+			if (aucFinalStatus == "Y") {
+				jQuery(aucClosingSecondRef).html("Closed");
+			}
+			else if (aucClosingSecond <= 0) {
+				jQuery(aucClosingSecondRef).html("Closing");
+			}
+			else {
+				jQuery(aucClosingSecondRef).html(secondsToDaysHourMinSec(aucClosingSecond));
+			}
+		}
+
+	</script>
+<!--[if lt IE 7 ]> <body id="home" class="ie ie6 index"> <![endif]-->
+<!--[if IE 7 ]> <body id="home" class="ie ie7 index"> <![endif]-->
+<!--[if IE 8 ]> <body id="home" class="ie ie8 index"> <![endif]-->
+<!--[if IE 9 ]> <body id="home" class="ie9 index"> <![endif]-->
+<!--[if (gt IE 9) | !(IE)]><!--> <body id="home" class="index"> <!--<![endif]-->
+
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '407661374348891');
+  fbq('track', 'PageView');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none" 
+       src="https://www.facebook.com/tr?id=407661374348891&ev=PageView&noscript=1"/>
+</noscript>
+<div id="page" class="bg_home">
+<header class="main-header">
+<div class="nav--utility navbar hidden-xs">
+<div class="container">
+<ul class="nav navbar-nav nav--utility__social">
+<li><a href="https://www.formula1.com/en.html" target="$_blank">F1&reg;</a></li>
+<li><a href="http://www.fiaformula2.com/" target="$_blank">F2&trade;</a></li>
+<li><a href="http://www.fiaformula3.com/" target="$_blank">F3&trade;</a></li>
+</ul>
+<ul class="nav navbar-nav navbar-right utility__nav ">
+<li class="mobile-nav"><a href="https://f1tv.formula1.com/en/" target="$_blank">F1&reg;TV</a></li>
+<li class="mobile-nav"><a href="https://f1store.formula1.com/stores/f1/en?portal=CUW6O5NR&CMP=PSC-CUW6O5NR" target="$_blank">Store</a></li>
+<li class="mobile-nav"><a href="https://tickets.formula1.com/en" target="$_blank">Tickets</a></li>
+<li class="mobile-nav"><a href="https://tickets.formula1.com/en/h-formula1-hospitality" target="$_blank">Hospitality</a></li>
+<li class="mobile-nav"><a href="https://f1experiences.com/calendar-of-events" target="$_blank">Experiences</a></li>
+<li class="btn btn-primary hidden-sm hidden-xs"> <a href="/iSynApp/appUserLogin!input.action?sid=1103161">
+Sign In
+</a>
+</a></li>
+<li class="btn btn-secondary hidden-sm hidden-xs"> <a href="/iSynApp/appUserReg!input.action?sid=1103161">
+Register
+</a>
+</li>
+<li class="btn btn-default hidden-sm hidden-xs"><a href="/iSynApp/appUserFavorite!showFavoriteList.action?sid=1103161&relType=auction&ssoAttempt=Y&iSynRetUrl=appUserFavorite!showFavoriteList.action?relType=auction"><span class="fa fa-star text-primary"></span></a></li>
+<li class="btn btn-default hidden-sm hidden-xs"><a href="/iSynApp/venueCheckout!showStep1.action?sid=1103161&pb=ioc1-1241225753692867"><span class="fa fa-shopping-cart "></span><span class="cart-num">0</span></a></li>
+</ul>
+</div>
+</div>
+<nav class="navbar navbar-inverse main-nav">
+	<nav>
+		<ul class="myRow mt-2 cstmNavBtnRow" style="justify-content: space-around; list-style: none;">
+			<li><a class="cstmNavBtn" href="index.html">checkout</a></li>
+			<li><a class="cstmNavBtn" href="index2.html">checkout prefilled</a></li>
+		</ul>
+	</nav>
+			<div class="container">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false">
+			<span class="sr-only">Toggle navigation</span>
+			<img src="https://vafloc01.s3.amazonaws.com/WBStatic/site1103161/dist/img/menu-drop.png" class="menubar" alt="Toggle navigation">
+			<img src="https://vafloc01.s3.amazonaws.com/WBStatic/site1103161/dist/img/menu-close.png" class="fa-close" alt="Toggle navigation">
+			</button>
+			<a class="navbar-brand" href="/iSynApp/showHomePage.action?sid=1103161"> <img src="https://vafloc01.s3.amazonaws.com/WBStatic/site1103161/dist/img/logo/logo-default.png" alt="Partner logo" />
+			</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav" id="tabs">
+			<li class="dropdown menu-large $plist">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Teams <i class="fa fa-angle-down"></i></a>
+			<ul class="dropdown-menu megamenu row ">
+			<li class="megamenu-width">
+			<div class="col-sm-6 col-md-3 ">
+			<a class="logo logo--55 mercedesamgpetronas team" href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=teamsearch&pgcust1=mercedesamgpetronas&fsList[0].strValue1=caf_team_s&fsList[0].strValue2=mercedesamgpetronas&sort=$sort&layout=listview">
+			<div>Mercedes </div>
+			<img src="https://vafloc02.s3.amazonaws.com/isyn/images/f138/img-2711138-f.png" alt="" />
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a class="logo logo--55 scuderiaferrari team" href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=teamsearch&pgcust1=scuderiaferrari&fsList[0].strValue1=caf_team_s&fsList[0].strValue2=scuderiaferrari&sort=$sort&layout=listview">
+			<div>Ferrari </div>
+			<img src="https://vafloc02.s3.amazonaws.com/isyn/images/f869/img-2719869-f.png" alt="" />
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a class="logo logo--55 redbullracing team" href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=teamsearch&pgcust1=redbullracing&fsList[0].strValue1=caf_team_s&fsList[0].strValue2=redbullracing&sort=$sort&layout=listview">
+			<div>Red Bull </div>
+			<img src="https://vafloc02.s3.amazonaws.com/isyn/images/f257/img-2711257-f.png" alt="" />
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a class="logo logo--55 alfaromeo team" href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=teamsearch&pgcust1=alfaromeo&fsList[0].strValue1=caf_team_s&fsList[0].strValue2=alfaromeo&sort=$sort&layout=listview">
+			<div>Alfa Romeo </div>
+			<img src="https://vafloc02.s3.amazonaws.com/isyn/images/f467/img-2712467-f.png" alt="" />
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a class="logo logo--55 mclaren team" href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=teamsearch&pgcust1=mclaren&fsList[0].strValue1=caf_team_s&fsList[0].strValue2=mclaren&sort=$sort&layout=listview">
+			<div>McLaren </div>
+			<img src="https://vafloc02.s3.amazonaws.com/isyn/images/f261/img-2713261-f.png" alt="" />
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a class="logo logo--55 alpine team" href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=teamsearch&pgcust1=alpine&fsList[0].strValue1=caf_team_s&fsList[0].strValue2=alpine&sort=$sort&layout=listview">
+			<div>Alpine </div>
+			<img src="https://vafloc02.s3.amazonaws.com/isyn/images/f465/img-2712465-f.png" alt="" />
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a class="logo logo--55 richenergyhaasf1 team" href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=teamsearch&pgcust1=richenergyhaasf1&fsList[0].strValue1=caf_team_s&fsList[0].strValue2=richenergyhaasf1&sort=$sort&layout=listview">
+			<div>Haas </div>
+			<img src="https://vafloc02.s3.amazonaws.com/isyn/images/f634/img-3571634-f.png" alt="" />
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a class="logo logo--55 astonmartin team" href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=teamsearch&pgcust1=astonmartin&fsList[0].strValue1=caf_team_s&fsList[0].strValue2=astonmartin&sort=$sort&layout=listview">
+			<div>Aston Martin </div>
+			<img src="https://vafloc02.s3.amazonaws.com/isyn/images/f240/img-2713240-f.png" alt="" />
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a class="logo logo--55 williamsf1 team" href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=teamsearch&pgcust1=williamsf1&fsList[0].strValue1=caf_team_s&fsList[0].strValue2=williamsf1&sort=$sort&layout=listview">
+			<div>Williams </div>
+			<img src="https://vafloc02.s3.amazonaws.com/isyn/images/f259/img-2711259-f.png" alt="" />
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a class="logo logo--55 alphatauri team" href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=teamsearch&pgcust1=alphatauri&fsList[0].strValue1=caf_team_s&fsList[0].strValue2=alphatauri&sort=$sort&layout=listview">
+			<div>AlphaTauri </div>
+			<img src="https://vafloc02.s3.amazonaws.com/isyn/images/f872/img-2880872-f.png" alt="" />
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a class="logo logo--55 pirelli team" href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=teamsearch&pgcust1=pirelli&fsList[0].strValue1=caf_team_s&fsList[0].strValue2=pirelli&sort=$sort&layout=listview">
+			<div>Pirelli </div>
+			<img src="https://vafloc02.s3.amazonaws.com/isyn/images/f569/img-3323569-f.png" alt="Pirelli" />
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a class="logo logo--55 privatecollectors team" href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=teamsearch&pgcust1=privatecollectors&fsList[0].strValue1=caf_team_s&fsList[0].strValue2=privatecollectors&sort=$sort&layout=listview">
+			<div>Private Collectors </div>
+			<img src="https://vafloc02.s3.amazonaws.com/isyn/images/f183/img-3373183-f.png" alt="Private Collectors" />
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a class="logo logo--55 teamarchive team" href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=teamsearch&pgcust1=teamarchive&fsList[0].strValue1=caf_team_s&fsList[0].strValue2=teamarchive&sort=$sort&layout=listview">
+			<div>Team Archive </div>
+			<img src="https://vafloc02.s3.amazonaws.com/isyn/images/f959/img-2908959-f.png" alt="" />
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			</li>
+			</ul>
+			</li>
+			<li class="dropdown menu-large $plist">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Drivers <i class="fa fa-angle-down"></i></a>
+			<ul class="dropdown-menu megamenu row ">
+			<li class="megamenu-width">
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=lewishamilton&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=lewishamilton&sort=$sort&layout=listview">
+			<div>Lewis Hamilton </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=sebastianvettel&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=sebastianvettel&sort=$sort&layout=listview">
+			<div>Sebastian Vettel </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=charlesleclerc&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=charlesleclerc&sort=$sort&layout=listview">
+			<div>Charles Leclerc </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=valtteribottas&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=valtteribottas&sort=$sort&layout=listview">
+			<div>Valtteri Bottas </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=carlossainz&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=carlossainz&sort=$sort&layout=listview">
+			<div>Carlos Sainz </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=danielricciardo&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=danielricciardo&sort=$sort&layout=listview">
+			<div>Daniel Ricciardo </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=felipemassa&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=felipemassa&sort=$sort&layout=listview">
+			<div>Felipe Massa </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=fernandoalonso&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=fernandoalonso&sort=$sort&layout=listview">
+			<div>Fernando Alonso </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=kevinmagnussen&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=kevinmagnussen&sort=$sort&layout=listview">
+			<div>Kevin Magnussen </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=kimiraikkonen&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=kimiraikkonen&sort=$sort&layout=listview">
+			<div>Kimi Raikkonen </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=lancestroll&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=lancestroll&sort=$sort&layout=listview">
+			<div>Lance Stroll </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=landonorris&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=landonorris&sort=$sort&layout=listview">
+			<div>Lando Norris </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=markwebber&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=markwebber&sort=$sort&layout=listview">
+			<div>Mark Webber </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=michaelschumacher&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=michaelschumacher&sort=$sort&layout=listview">
+			<div>Michael Schumacher </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=nicohulkenberg&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=nicohulkenberg&sort=$sort&layout=listview">
+			<div>Nico Hulkenberg </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=nicorosberg&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=nicorosberg&sort=$sort&layout=listview">
+			<div>Nico Rosberg </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=nigelmansell&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=nigelmansell&sort=$sort&layout=listview">
+			<div>Nigel Mansell </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=ralfschumacher&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=ralfschumacher&sort=$sort&layout=listview">
+			<div>Ralf Schumacher </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=robertkubica&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=robertkubica&sort=$sort&layout=listview">
+			<div>Robert Kubica </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=romaingrosjean&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=romaingrosjean&sort=$sort&layout=listview">
+			<div>Romain Grosjean </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=rubensbarrichello&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=rubensbarrichello&sort=$sort&layout=listview">
+			<div>Rubens Barrichello </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=sergioperez&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=sergioperez&sort=$sort&layout=listview">
+			<div>Sergio Perez </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=mikahakkinen&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=mikahakkinen&sort=$sort&layout=listview">
+			<div>Mika Häkkinen </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=ayrtonsenna&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=ayrtonsenna&sort=$sort&layout=listview">
+			<div>Ayrton Senna </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=estebanocon&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=estebanocon&sort=$sort&layout=listview">
+			<div>Esteban Ocon </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=driverarchive&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=driverarchive&sort=$sort&layout=listview">
+			<div>Driver Archive </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=jensonbutton&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=jensonbutton&sort=$sort&layout=listview">
+			<div>Jenson Button </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=mickschumacher&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=mickschumacher&sort=$sort&layout=listview">
+			<div>Mick Schumacher </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			<div class="col-sm-6 col-md-3 ">
+			<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=driversearch&pgcust1=guanyuzhau&fsList[0].strValue1=caf_driver_s&fsList[0].strValue2=guanyuzhau&sort=$sort&layout=listview">
+			<div>Guanyu Zhou </div>
+			<i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i>
+			</a></div>
+			</li>
+			</ul>
+			</li>
+			<li class="dropdown menu-large $clist">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories <i class="fa fa-angle-down"></i></a>
+			<ul class="dropdown-menu megamenu row ">
+			<li class="megamenu-width">
+			<div class="col-sm-6 col-md-3"><a href="/iSynApp/allAuction.action?sid=1103161&rc=10&sort=$sort&pgmode2=catpage&layout=listview&selectedCatId=30667"><span>Austin Auction</span><i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i></a></div>
+			<div class="col-sm-6 col-md-3"><a href="/iSynApp/allAuction.action?sid=1103161&rc=10&sort=$sort&pgmode2=catpage&layout=listview&selectedCatId=31122"><span>F1&#174; Race Cars</span><i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i></a></div>
+			<div class="col-sm-6 col-md-3"><a href="/iSynApp/allAuction.action?sid=1103161&rc=10&sort=$sort&pgmode2=catpage&layout=listview&selectedCatId=25700"><span>Car Parts</span><i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i></a></div>
+			<div class="col-sm-6 col-md-3"><a href="/iSynApp/allAuction.action?sid=1103161&rc=10&sort=$sort&pgmode2=catpage&layout=listview&selectedCatId=25701"><span>Re-engineered F1&#174; Parts</span><i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i></a></div>
+			<div class="col-sm-6 col-md-3"><a href="/iSynApp/allAuction.action?sid=1103161&rc=10&sort=$sort&pgmode2=catpage&layout=listview&selectedCatId=25661"><span>Helmets</span><i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i></a></div>
+			<div class="col-sm-6 col-md-3"><a href="/iSynApp/allAuction.action?sid=1103161&rc=10&sort=$sort&pgmode2=catpage&layout=listview&selectedCatId=25662"><span>Models</span><i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i></a></div>
+			<div class="col-sm-6 col-md-3"><a href="/iSynApp/allAuction.action?sid=1103161&rc=10&sort=$sort&pgmode2=catpage&layout=listview&selectedCatId=25663"><span>Heritage Racewear</span><i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i></a></div>
+			<div class="col-sm-6 col-md-3"><a href="/iSynApp/allAuction.action?sid=1103161&rc=10&sort=$sort&pgmode2=catpage&layout=listview&selectedCatId=25960"><span>Charity Auctions</span><i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i></a></div>
+			<div class="col-sm-6 col-md-3"><a href="/iSynApp/allAuction.action?sid=1103161&rc=10&sort=$sort&pgmode2=catpage&layout=listview&selectedCatId=28320"><span>2022 Racewear</span><i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i></a></div>
+			<div class="col-sm-6 col-md-3"><a href="/iSynApp/allAuction.action?sid=1103161&rc=10&sort=$sort&pgmode2=catpage&layout=listview&selectedCatId=26361"><span>Signed Photos</span><i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i></a></div>
+			</li>
+			</ul>
+			</li>
+			<li class="$allauctions dropdown menu-large">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Auctions <i class="fa fa-angle-down"></i></a>
+			<ul class="dropdown-menu megamenu row ">
+			<li class="megamenu-width">
+			<div class="col-sm-6 col-md-3"><a href="/iSynApp/allAuction.action?sid=1103161&rc=10&sort=title_asc&qMode=preopen"><span>Upcoming Auctions</span><i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i></a></div>
+			<div class="col-sm-6 col-md-3"><a href="/iSynApp/allAuction.action?sid=1103161&rc=10&sort=title_asc"><span>All Auctions</span><i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i></a></div>
+			<div class="col-sm-6 col-md-3"><a href="/iSynApp/allAuction.action?sid=1103161&rc=10&sort=timeleft_asc&pgmode2=closingsoon"><span>Ending Soon</span><i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i></a></div>
+			<div class="col-sm-6 col-md-3"><a href="/iSynApp/allAuction.action?sid=1103161&rc=10&sort=bidcount_desc&pgmode2=hotitems"><span>Most Popular</span><i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i></a></div>
+			<div class="col-sm-6 col-md-3"><a href="https://www.f1authentics.com/how-to-consign-en"><span>How To Consign</span><i class="fa fa-chevron-right f1-color--white icon-chevron--position"></i></a></div>
+			</li>
+			</ul>
+			</li>
+			<li class="nav-item">
+			<a href="https://f1authentics.com/" target="_blank">Shop</a>
+			</li>
+			<li>
+			<a href="https://www.f1authentics.com/collections/f1-race-show-cars" target="$_blank">F1 Race Cars</a>
+			</li>
+			<li class="dropdown smallDrop hidden-lg hidden-md">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <i class="fa fa-angle-down"></i></a>
+			<ul class="dropdown-menu ">
+			<li> <a href="/iSynApp/appUserLogin!input.action?sid=1103161">
+			Login
+			</a>
+			</li>
+			<li> <a href="/iSynApp/appUserReg!input.action?sid=1103161">
+			Register
+			</a>
+			</li>
+			</ul>
+			</li>
+			<li class="hidden-lg hidden-md"><a href="/iSynApp/venueCheckout!showStep1.action?sid=1103161&pb=ioc1-1241225753692876">View Cart (0)</i></a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+			<li class="mobile-nav li-search-small">
+			<div style="display: none;" id="search_type" value="both"></div>
+			<form id="search_form" role="search" class="form-inline site-search" action="/iSynApp/allAuction.action" method="get">
+			<input type="hidden" name="sid" value="1103161" />
+			<input type="hidden" name="selectedCatId" value="25660" />
+			<input type="hidden" name="rc" value="10" />
+			<input type="hidden" name="sort" value="timeleft_asc" />
+			<input type="hidden" name="queryfield" value="title" />
+			<input type="hidden" name="pgmode1" value="search" />
+			<div class="input-group add-on ">
+			<div class="input-group-header">
+			<input id="search_input" autocomplete="off" type="text" name="query" class="form-text-input input-search" placeholder="Search" data-prompt-position="centerRight" placeholder="Search" id="query" type="text">
+			<input type="hidden" name="query" id="search_input_add">
+			</div>
+			<div>
+			<button id="search-submit"><i class="fa fa-search"></i><span class="sr-only">SEARCH</span></button>
+			</div>
+			</div>
+			</form>
+			<div id="search_results">
+			<ul><li tabindex="0"><strong>Type at least three characters to see results.</strong></li></ul>
+			</div>
+			</li>
+			<li class="hide visible-xs visible-sm"><a href="https://f1store.formula1.com/stores/f1/en?portal=CUW6O5NR&CMP=PSC-CUW6O5NR" target="$_blank">Store</a></li>
+			<li class="hide visible-xs visible-sm"><a href="https://tickets.formula1.com/en" target="$_blank">Tickets</a></li>
+			<li class="hide visible-xs visible-sm"><a href="https://tickets.formula1.com/en/h-formula1-hospitality" target="$_blank">Hospitality</a></li>
+			<li class="hide visible-xs visible-sm"><a href="https://f1experiences.com/calendar-of-events" target="$_blank">Experiences</a></li>
+			<li class="hide visible-xs visible-sm"><a href="https://f1tv.formula1.com/en/" target="$_blank">F1&reg;</a></li>
+			</ul>
+			</div>
+			</div>
+</nav>
+<style>
+	.site-search,#search_form {
+		position: relative;
+	}
+
+	.search-icon {
+		position: absolute;
+		right: 17px;
+		top: 7px;
+		font-size: 20px;
+		opacity: 0.3;
+		padding: 0;
+		background-color: transparent;
+		border: 0;
+		outline: none;
+	}
+
+		@media screen and (max-width: 1029px) {
+			.site-search input[type="search"],
+			.site-search input[type="text"] {
+				width: 100% !important;
+				float: left;
+				margin-right: 0;
+			}
+		}
+
+		.main-header,
+		.masthead {
+			position: relative;
+		}
+		
+		#search_results {
+			display: none;
+			position: absolute;
+			top: 100%;
+			text-align:center;
+			background-color: #fff;
+			padding: 10px;
+			border: 1px solid #ccc;
+			right: 0px;
+			z-index: 999;
+			width: 382px;
+			max-height: 400px;
+			overflow: auto;
+			min-height: auto;
+			margin-top: 0px;
+		}
+
+		#search_results p {
+			margin-bottom: 0;
+		}
+
+		#search_results ul {
+			list-style: none;
+			padding-top: 5px;
+      padding-left:5px;
+		}
+
+		#search_results ul li {
+			margin-bottom: 20px;
+			border-bottom: 1px solid #eee;
+			padding-bottom: 20px;
+			min-height: 100px;
+			display: inline-block;
+		}
+
+    #search_results ul li:hover{
+      background:none;
+    }
+
+		#search_results ul li:last-child {
+			margin-bottom: 0;
+			padding-bottom: 0;
+			border-bottom: 0;
+		}
+
+		#search_results .search-thumb {
+			float: left;
+			width: 28%;
+			text-align:center;
+		}
+
+		#search_results .search-thumb img {
+			padding: 5px;
+			background-color: #fff;
+			border: 1px solid #ccc;
+		}
+
+		#search_results .search-title {
+			float: right;
+			width: 65%;
+			text-align: left;
+		}
+
+		#search_results .search-current-bid {
+			display: block;
+			margin-top:5px;
+			color: #a2a2a2;
+		}
+
+		#search_results .search-current-bid span {
+			color: #036;
+			font-weight: 600;
+		}
+</style>
+</header>
+<div class="content">
+    <div class="container">			
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="content">
+                    <div class="navVisaLogo">
+                        <h4  class="pages_container username_title col-md-8" style="margin-top: 0;">CHECKOUT</h4>
+                        <!-- <div class="myRow justify-content-end" style="align-items: baseline;">
+                            <h4 style="text-transform: italic;font-style: italic; color: blue; margin: 0;" >presented by</h4>
+                            <img class="headerNflVisaLogo col-md-4" src="./Visa_Brandmark_Blue_RGB.png" alt="">
+                        </div> -->
+                    </div>
+                    <div class="myRow mt-2 justify-content-spceBtwn">    
+
+                        <div class="shoppingInfo">
+                            <div class="card">
+                                <h2 class="auction_sub_title">Shipping Address:</h2>
+                                <form action="">
+                                    <div class="formRows myRow justify-content-spceBtwn">
+                                        <div class="col-6">
+                                            <label for="firstName">First Name</label>
+                                            <input type="text" class="form-control" aria-label="First name" id="firstName" onchange="handleinput('shippingAdd',id, value)" value="">
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="lastName">Last Name</label>
+                                            <input type="text" class="form-control" aria-label="Last name" id="lastName" onchange="handleinput('shippingAdd',id, value)">
+                                        </div>
+                                    </div>
+                                    <div class="formRows myRow justify-content-spceBtwn">
+                                        <div class="col-6">
+                                            <label for="inputEmail4">Email Address</label>
+                                            <input type="email" class="form-control" id="inputEmail" onchange="handleinput('shippingAdd',id, value)">
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="inputEmailConfirm">Confirm Email Address</label>
+                                            <input type="email" class="form-control" id="inputEmailConfirm" onchange="handleinput('shippingAdd',id, value)">
+                                        </div>
+                                    </div>
+                                    <div class="formRows myRow justify-content-spceBtwn">
+                                        <div class="col-6">
+                                            <label for="adress">Address</label>
+                                            <input type="text" class="form-control" aria-label="Address" id="adress"  onchange="handleinput('shippingAdd',id, value)">
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="adress2">Address Line 2</label>
+                                            <input type="text" class="form-control" aria-label="Address Line 2" id="adress2"  onchange="handleinput('shippingAdd',id, value)">
+                                        </div>
+                                    </div>
+                                    <div class="formRows myRow justify-content-spceBtwn">
+                                        <div class="col-6">
+                                            <label for="city">City</label>
+                                            <input type="text" class="form-control" aria-label="City" id="city" onchange="handleinput('shippingAdd',id, value)">
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="province">State</label>
+                                            <select id="province" class="shipping-field form-control shadow-none error" tabindex="8" required="true" onchange="handleinput('shippingAdd',id, value)">
+                                                <option value="">Select</option>
+                                                <option value="AL">Alabama</option>
+                                                <option value="AK">Alaska</option>
+                                                <option value="AZ">Arizona</option>
+                                                <option value="AR">Arkansas</option>
+                                                <option value="CA">California</option>
+                                                <option value="CO">Colorado</option>
+                                                <option value="CT">Connecticut</option>
+                                                <option value="DE">Delaware</option>
+                                                <option value="DC">District Of Columbia</option>
+                                                <option value="FL">Florida</option>
+                                                <option value="GA">Georgia</option>
+                                                <option value="HI">Hawaii</option>
+                                                <option value="ID">Idaho</option>
+                                                <option value="IL">Illinois</option>
+                                                <option value="IN">Indiana</option>
+                                                <option value="IA">Iowa</option>
+                                                <option value="KS">Kansas</option>
+                                                <option value="KY">Kentucky</option>
+                                                <option value="LA">Louisiana</option>
+                                                <option value="ME">Maine</option>
+                                                <option value="MD">Maryland</option>
+                                                <option value="MA">Massachusetts</option>
+                                                <option value="MI">Michigan</option>
+                                                <option value="MN">Minnesota</option>
+                                                <option value="MS">Mississippi</option>
+                                                <option value="MO">Missouri</option>
+                                                <option value="MT">Montana</option>
+                                                <option value="NE">Nebraska</option>
+                                                <option value="NV">Nevada</option>
+                                                <option value="NH">New Hampshire</option>
+                                                <option value="NJ">New Jersey</option>
+                                                <option value="NM">New Mexico</option>
+                                                <option value="NY">New York</option>
+                                                <option value="NC">North Carolina</option>
+                                                <option value="ND">North Dakota</option>
+                                                <option value="OH">Ohio</option>
+                                                <option value="OK">Oklahoma</option>
+                                                <option value="OR">Oregon</option>
+                                                <option value="PA">Pennsylvania</option>
+                                                <option value="RI">Rhode Island</option>
+                                                <option value="SC">South Carolina</option>
+                                                <option value="SD">South Dakota</option>
+                                                <option value="TN">Tennessee</option>
+                                                <option value="TX">Texas</option>
+                                                <option value="UT">Utah</option>
+                                                <option value="VT">Vermont</option>
+                                                <option value="VA">Virginia</option>
+                                                <option value="WA">Washington</option>
+                                                <option value="WV">West Virginia</option>
+                                                <option value="WI">Wisconsin</option>
+                                                <option value="WY">Wyoming</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="card">
+                                <div class="disabled" id="shippingMethod"></div>
+                                <h2 class="auction_sub_title">Shipping Method:</h2>
+                                <div class="col-12">
+                                    <label hidden for="method">Shipping Method:</label>
+                                    <select id="method" class="shipping-field form-control shadow-none error" tabindex="8" required="true" onchange="handleinput('shippingMeth',id, value)">
+                                        <option>Select</option>
+                                        <option value="Standard">Standard</option>
+                                        <option value="Express">Express</option>
+                                        <option value="PickUp">Pick up</option>
+                                    </select  >
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="disabled" id="billingAddress1"></div>
+
+                                <h2 class="auction_sub_title">Billing Address:</h2>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="billingChecked" checked onchange="showBilling(billingChecked)">
+                                    <label class="form-check-label" for="billingChecked">
+                                      Same as shipping
+                                    </label>
+                                  </div>
+                                <form action="" class="hidden" id="billingAddress">
+                                    <div class="formRows myRow justify-content-spceBtwn">
+                                        <div class="col-6">
+                                            <label for="billingAdress">Address</label>
+                                            <input type="text" class="form-control" aria-label="Address" id="billingAdress" onchange="handleinput('billingAdd',id, value)">
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="billingAdress2">Address Line 2</label>
+                                            <input type="text" class="form-control" aria-label="Address Line 2" id="billingAdress2"
+                                            onchange="handleinput('billingAdd',id, value)">
+                                        </div>
+                                    </div>
+                                    <div class="formRows myRow justify-content-spceBtwn">
+                                        <div class="col-6">
+                                            <label for="billingCity">City</label>
+                                            <input type="text" class="form-control" aria-label="City" id="billingCity"
+                                            onchange="handleinput('billingAdd',id, value)">
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="billingProvince">State</label>
+                                            <select id="billingProvince" class="shipping-field form-control shadow-none error" tabindex="8" required="" onchange="handleinput('billingAdd',id, value)">
+                                                <option value="">Select</option>
+                                                <option value="AL">Alabama</option>
+                                                <option value="AK">Alaska</option>
+                                                <option value="AZ">Arizona</option>
+                                                <option value="AR">Arkansas</option>
+                                                <option value="CA">California</option>
+                                                <option value="CO">Colorado</option>
+                                                <option value="CT">Connecticut</option>
+                                                <option value="DE">Delaware</option>
+                                                <option value="DC">District Of Columbia</option>
+                                                <option value="FL">Florida</option>
+                                                <option value="GA">Georgia</option>
+                                                <option value="HI">Hawaii</option>
+                                                <option value="ID">Idaho</option>
+                                                <option value="IL">Illinois</option>
+                                                <option value="IN">Indiana</option>
+                                                <option value="IA">Iowa</option>
+                                                <option value="KS">Kansas</option>
+                                                <option value="KY">Kentucky</option>
+                                                <option value="LA">Louisiana</option>
+                                                <option value="ME">Maine</option>
+                                                <option value="MD">Maryland</option>
+                                                <option value="MA">Massachusetts</option>
+                                                <option value="MI">Michigan</option>
+                                                <option value="MN">Minnesota</option>
+                                                <option value="MS">Mississippi</option>
+                                                <option value="MO">Missouri</option>
+                                                <option value="MT">Montana</option>
+                                                <option value="NE">Nebraska</option>
+                                                <option value="NV">Nevada</option>
+                                                <option value="NH">New Hampshire</option>
+                                                <option value="NJ">New Jersey</option>
+                                                <option value="NM">New Mexico</option>
+                                                <option value="NY">New York</option>
+                                                <option value="NC">North Carolina</option>
+                                                <option value="ND">North Dakota</option>
+                                                <option value="OH">Ohio</option>
+                                                <option value="OK">Oklahoma</option>
+                                                <option value="OR">Oregon</option>
+                                                <option value="PA">Pennsylvania</option>
+                                                <option value="RI">Rhode Island</option>
+                                                <option value="SC">South Carolina</option>
+                                                <option value="SD">South Dakota</option>
+                                                <option value="TN">Tennessee</option>
+                                                <option value="TX">Texas</option>
+                                                <option value="UT">Utah</option>
+                                                <option value="VT">Vermont</option>
+                                                <option value="VA">Virginia</option>
+                                                <option value="WA">Washington</option>
+                                                <option value="WV">West Virginia</option>
+                                                <option value="WI">Wisconsin</option>
+                                                <option value="WY">Wyoming</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="card">
+                                <div class="disabled" id="paymentDetail"></div>
+
+                                <div class="myRow justify-content-spceBtwn">
+                                    <h2 class="auction_sub_title">Payment Details:</h2>
+                                </div>
+                                <form action="" style="margin: 20px auto;">
+                                    
+                                    <div  class="formRows myRow justify-content-spceBtwn">
+                                        <div class="col-12">
+                                            <label for="selectPayment">Choose Payment Option</label>
+                                            <select id="selectPayment" class="shipping-field form-control shadow-none error" tabindex="8" required="" value="Visa">
+                                                <!-- <option value="Visa">Visa</option> -->
+                                                <option value="Visa"><img class="visaLogoSm" src="./Visa_Brandmark_Blue_RGB.png" alt=""> 
+                                                     Visa</option>
+                                                <option value="Paypal">Paypal</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="formRows myRow justify-content-spceBtwn">
+                                        <div class="col-12">
+                                            <label for="cardNumber">Card Number</label>
+                                            <input type="number" class="form-control" aria-label="Card Number" id="cardNumber" onchange="handleinput('paymentInfo',id, value)">
+                                        </div>
+                                    </div>
+                                    <div class="formRows myRow justify-content-spceBtwn">
+                                        <div class="col-12">
+                                            <label for="cvvNumber">CVV Number</label>
+                                            <input type="number" class="form-control" aria-label="CVV Number" id="cvvNumber"
+                                            onchange="handleinput('paymentInfo',id, value)">
+                                        </div>
+                                    </div>
+                                    <div class="formRows myRow justify-content-spceBtwn">
+                                        <div class="col-12">
+                                            <label for="month">Exp. Month / Year</label>
+                                            <input type="month"class="form-control" name="start"
+                                            min="2022-06" value="" id="month"
+                                            onchange="handleinput('paymentInfo',id, value)">
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="cart-container">
+                            <div class="cart-box">
+                                <div class="card">
+                                    <div class="d-flex justify-content-spceBtwn">
+                                        <h2 class="auction_sub_title">Your Cart:</h2>
+                                        <span class="standMedButton"><a href="#">Edit Cart</a></span>
+                                    </div>
+                                    <div class="cart-items">
+                                        <div class="item">
+                                            <div class="image-container">
+                                                <img class="item-image" src="https://cdn.shopify.com/s/files/1/0565/1742/7397/products/Ferrari-F1-75-Steering-Wheel_1640x.jpg?v=1649692177" alt="">
+                                                <div class="itemQty">1</div>
+                                            </div>
+                                            <div class="item-detail">
+                                                 <h4>SCUDERIA FERRARI F1-75 2022 1:1 SCALE MODEL STEERING WHEEL
+												</h4>
+                                                <p>PRICE: $50.00</p>
+                                            </div>
+                                            </h4>
+                                        </div>
+                                        <div class="item">
+                                            <div class="image-container">
+                                                <img class="item-image" src="https://cdn.shopify.com/s/files/1/0565/1742/7397/products/Carlos-Sainz-2022-Ferrari-1.8-Scale-Model-1_1640x.jpg?v=1663668619"  alt="">
+                                                <div class="itemQty">1</div>
+                                            </div>
+                                            <div class="item-detail">
+                                                 <h4>CARLOS SAINZ 2022 1:8 SCALE MODEL SCUDERIA FERRARI F1-75 – BAHRAIN GP
+												</h4>
+                                                <p>PRICE: $50.00</p>
+                                            </div>
+                                            </h4>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="total-price d-flex justify-content-spceBtwn">
+                                    <p>Sub Total</p>
+                                    <p>$100.00</p>
+                                </div>
+
+                                <button class="submitBtn inactive" id="submitBtn" disabled>
+                                    place order
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--// column_b -->
+    <div id="divide_line_footer"></div>
+
+<div class="container">
+<div class="row text-center">
+<div class="col-xs-12">
+
+</div>
+</div>
+</div>
+<style>
+.promo-container {
+  padding: 1% 3%;
+}
+
+.promo-container .col-md-6 {
+  padding: 3%;
+  padding: 10px 10px;
+}
+
+.promo-container .col-md-6 img {
+  border-radius: 10px;
+}
+</style>
+
+<div class="container index__listings">
+
+ </div>
+</div>
+<footer class="main-footer">
+<div class="footer-social">
+<div class="container ">
+<div class="row ">
+<div class="col-xs-12 col-sm-7 text-left">
+<ul class="list-inline text-xs-center mt-xs-3">
+<li class="social-text hidden-xs">
+DOWNLOAD THE<br />
+OFFICIAL F1 APP
+</li>
+<li class="google-"><a target="$_blank" href="https://play.google.com/store/apps/details?id=com.softpauer.f1timingapp2014.basic&hl=en_GB"><img src="https://vafloc01.s3.amazonaws.com/WBStatic/site1103161/dist/img/google-play.png" alt="Google Play Logo"></a></li>
+<li><a target="$_blank" href="https://apps.apple.com/gb/app/formula-1/id835022598"><img src="https://vafloc01.s3.amazonaws.com/WBStatic/site1103161/dist/img/apple-store.png" alt="Apple Store Logo"></a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-5 text-right text-xs-center mt-xs-2">
+<nav class="footer-social footer-element">
+<ul class="list-inline">
+<li><a target="$_blank" href="https://www.instagram.com/f1authentics"><i class="fa fa-instagram"></i></a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-contain">
+<div class="container ">
+<div class="row drop-border">
+<div class="footer-nav-col col-md-2 col-xs-12">
+<nav class="footer-nav footer-element">
+<h4 class="footer-element--title"><a href="https://www.f1authentics.com">Buy Now</a></h4>
+<h4 class="footer-element--title mt-2"><a href="/iSynApp/appAccount.action?sid=1103161&ssoAttempt=Y">My Account</a></h4>
+<h4 class="footer-element--title mt-2"><a href="/iSynApp/showPage.action?sid=1103161&pageName=about">About Us</a></h4>
+<h4 class="footer-element--title mt-2"><a href="/iSynApp/showPage.action?sid=1103161&pageName=signup">Sign Up For Auction News</a></h4>
+</nav>
+</div>
+<div class="footer-nav-col col-md-2 col-sm-6 col-xs-12">
+<nav class="footer-nav footer-element">
+<h4 class="footer-element--title">Categories</h4>
+<ul class="list-unstyled">
+<li><a href="/iSynApp/allAuction.action?sid=1103161&rc=10&sort=$sort&pgmode2=catpage&layout=listview&selectedCatId=30667">Austin Auction</a></li>
+<li><a href="/iSynApp/allAuction.action?sid=1103161&rc=10&sort=$sort&pgmode2=catpage&layout=listview&selectedCatId=31122">F1&#174; Race Cars</a></li>
+<li><a href="/iSynApp/allAuction.action?sid=1103161&rc=10&sort=$sort&pgmode2=catpage&layout=listview&selectedCatId=25700">Car Parts</a></li>
+<li><a href="/iSynApp/allAuction.action?sid=1103161&rc=10&sort=$sort&pgmode2=catpage&layout=listview&selectedCatId=25701">Re-engineered F1&#174; Parts</a></li>
+<li><a href="/iSynApp/allAuction.action?sid=1103161&rc=10&sort=$sort&pgmode2=catpage&layout=listview&selectedCatId=25661">Helmets</a></li>
+<li><a href="/iSynApp/allAuction.action?sid=1103161&rc=10&sort=$sort&pgmode2=catpage&layout=listview&selectedCatId=25662">Models</a></li>
+<li><a href="/iSynApp/allAuction.action?sid=1103161&rc=10&sort=$sort&pgmode2=catpage&layout=listview&selectedCatId=25663">Heritage Racewear</a></li>
+<li><a href="/iSynApp/allAuction.action?sid=1103161&rc=10&sort=$sort&pgmode2=catpage&layout=listview&selectedCatId=25960">Charity Auctions</a></li>
+<li><a href="/iSynApp/allAuction.action?sid=1103161&rc=10&sort=$sort&pgmode2=catpage&layout=listview&selectedCatId=28320">2022 Racewear</a></li>
+<li><a href="/iSynApp/allAuction.action?sid=1103161&rc=10&sort=$sort&pgmode2=catpage&layout=listview&selectedCatId=26361">Signed Photos</a></li>
+</ul>
+</nav>
+</div>
+<div class="footer-nav-col col-lg-6 col-md-6 col-sm-6 col-xs-12">
+<nav class="footer-nav footer-element">
+<h4 class="footer-element--title">Team</h4>
+<div class="row">
+<div class="col-xs-12 col-sm-6 mb-1">
+<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=teamsearch&pgcust1=mercedesamgpetronas&fsList[0].strValue1=caf_team_s&fsList[0].strValue2=mercedesamgpetronas&sort=$sort&layout=listview">
+Mercedes
+</a></div>
+<div class="col-xs-12 col-sm-6 mb-1">
+<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=teamsearch&pgcust1=alfaromeo&fsList[0].strValue1=caf_team_s&fsList[0].strValue2=alfaromeo&sort=$sort&layout=listview">
+Alfa Romeo
+</a></div>
+<div class="col-xs-12 col-sm-6 mb-1">
+<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=teamsearch&pgcust1=mclaren&fsList[0].strValue1=caf_team_s&fsList[0].strValue2=mclaren&sort=$sort&layout=listview">
+McLaren
+</a></div>
+<div class="col-xs-12 col-sm-6 mb-1">
+<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=teamsearch&pgcust1=alpine&fsList[0].strValue1=caf_team_s&fsList[0].strValue2=alpine&sort=$sort&layout=listview">
+Alpine
+</a></div>
+<div class="col-xs-12 col-sm-6 mb-1">
+<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=teamsearch&pgcust1=richenergyhaasf1&fsList[0].strValue1=caf_team_s&fsList[0].strValue2=richenergyhaasf1&sort=$sort&layout=listview">
+Haas
+</a></div>
+<div class="col-xs-12 col-sm-6 mb-1">
+<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=teamsearch&pgcust1=astonmartin&fsList[0].strValue1=caf_team_s&fsList[0].strValue2=astonmartin&sort=$sort&layout=listview">
+Aston Martin
+</a></div>
+<div class="col-xs-12 col-sm-6 mb-1">
+<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=teamsearch&pgcust1=privatecollectors&fsList[0].strValue1=caf_team_s&fsList[0].strValue2=privatecollectors&sort=$sort&layout=listview">
+Private Collectors
+</a></div>
+<div class="col-xs-12 col-sm-6 mb-1">
+<a href="/iSynApp/allAuction.action?sid=1103161&rc=10&pgmode1=teamsearch&pgcust1=teamarchive&fsList[0].strValue1=caf_team_s&fsList[0].strValue2=teamarchive&sort=$sort&layout=listview">
+Team Archive
+</a></div>
+</div>
+</nav>
+</div>
+<div class="footer-nav-col  col-md-2  col-xs-12">
+<div class="footer-payment footer-element">
+<p>PAYMENT OPTIONS</p>
+<ul class="list-inline">
+<li><img src="https://vafloc01.s3.amazonaws.com/WBStatic/site1103161/dist/img/cc/payment.png" alt="Payement Logo" class="cc-logo"></li>
+</ul>
+</div>
+</div>
+<div class="col-xs-12 text-right">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="150px" height="60px" viewBox="0 0 120 30" version="1.1" class="injected-svg js-svg-inject">
+<title>Logos / F1-logo red</title>
+<desc>Created with Sketch.</desc>
+<defs>
+<path d="M101.086812,30 L101.711812,30 L101.711812,27.106875 L101.722437,27.106875 L102.761812,30 L103.302437,30 L104.341812,27.106875 L104.352437,27.106875 L104.352437,30 L104.977437,30 L104.977437,26.25125 L104.063687,26.25125 L103.055562,29.18625 L103.044937,29.18625 L102.011187,26.25125 L101.086812,26.25125 L101.086812,30 Z M97.6274375,26.818125 L98.8136875,26.818125 L98.8136875,30 L99.4699375,30 L99.4699375,26.818125 L100.661812,26.818125 L100.661812,26.25125 L97.6274375,26.25125 L97.6274375,26.818125 Z M89.9999375,30 L119.999937,0 L101.943687,0 L71.9443125,30 L89.9999375,30 Z M85.6986875,13.065 L49.3818125,13.065 C38.3136875,13.065 36.3768125,13.651875 31.6361875,18.3925 C27.2024375,22.82625 20.0005625,30 20.0005625,30 L35.7324375,30 L39.4855625,26.246875 C41.9530625,23.779375 43.2255625,23.52375 48.4068125,23.52375 L75.2405625,23.52375 L85.6986875,13.065 Z M31.1518125,16.253125 C27.8774375,19.3425 20.7530625,26.263125 16.9130625,30 L-6.25e-05,30 C-6.25e-05,30 13.5524375,16.486875 21.0849375,9.0725 C28.8455625,1.685 32.7143125,0 46.9486875,0 L98.7643125,0 L87.5449375,11.21875 L48.0011875,11.21875 C37.9993125,11.21875 35.7518125,11.911875 31.1518125,16.253125 Z" id="path-1"></path>
+</defs>
+<g id="Logos-/-F1-logo-red" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+<g id="Page-1">
+<mask id="mask-2" fill="white">
+<use xlink:href="#path-1"></use>
+</mask>
+<use id="Fill-1" fill="#EE0000" xlink:href="#path-1"></use>
+</g>
+</g>
+</svg>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12 text-left footer-sub-nav">
+<ul class="list-inline ">
+<li><a href="/iSynApp/showPage.action?sid=1103161&pageName=terms">Terms & Conditions</a></li>
+<li><a href="/iSynApp/showPage.action?sid=1103161&pageName=privacy">Privacy Policy</a></li>
+<li><a href="/iSynApp/showPage.action?sid=1103161&pageName=faq">FAQ</a></li>
+<li><a href="/iSynApp/manageUserEmail!showEmailContactUsForm.action?sid=1103161">Customer Service</a></li>
+</ul>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12">
+<div class="seperator"></div>
+</div>
+</div>
+<div class="row footer-trademarks">
+<div class="col-xs-12 col-md-8 mt-xs-2 power-left-con">
+<a href="http://themementogroup.com/" target="$_blank"><span class="powered-by"><sup>Powered By</sup></span><img class="power-logo" src="https://vafloc01.s3.amazonaws.com/WBStatic/site1103161/dist/img/logo/momento-logo.png" alt="momento logo" /></a>
+</div>
+<div class="col-xs-12 col-md-4 copyright">&copy; 2020 Formula One World Championship</div>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<script type="text/javascript" charset="utf-8">
+
+	// Big assumption, JavaScript engine for the browser needs to be single threaded
+	var jsCallId = 0;
+	var jsCallIdName = "jsCallId";
+	var jsCallBackFunctionMap = {};
+	var jsSessionCookieName = "isynsession";
+
+	// Get next call id
+	var jsGetNextCallId = function() {
+		jsCallId = jsCallId + 1;
+		return jsCallId;
+	}
+
+	// Get a unique call back handler for the call id and then remove if from the function map
+	var jsGetCallBackFunction = function(callId) {
+		var callBackRef = jsCallIdName + callId;
+		var foundCallBack = jsCallBackFunctionMap[callBackRef];
+		delete jsCallBackFunctionMap[callBackRef];
+		return foundCallBack;
+	}
+
+	// Set a unique call back handler for the call id
+	var jsSetCallBackFunction = function(callId, callBackFunction) {
+		if (typeof callBackFunction=="undefined") {
+			return;
+		}
+		var callBackRef = jsCallIdName + callId;
+		jsCallBackFunctionMap[callBackRef] = callBackFunction;
+	}
+
+	// Populate a session cookie if available
+	var jsGetLoginSessionValue = function() {
+		jsSessionCookieValue = jQuery.cookie(jsSessionCookieName);
+		if (typeof jsSessionCookieValue!="undefined") {
+			return jsSessionCookieValue;
+		}
+		else {
+			return "";
+		}
+	}
+
+	// Set a session cookie if available using the json data received from the call
+	var jsProcessLoginResponse = function(jsData) {
+		if (jsData.jsStatus == "success") {
+    		jQuery.cookie(jsSessionCookieName, jsData.jsSessionValue, { path: '/' });
+    	}
+	}
+
+	// Merge two parameter maps
+	var jsMergeParams = function(toMap, fromMap){
+	    // copy params from fromMap to toMap
+		for (fromMapName in fromMap) {
+		   toMap[fromMapName] = fromMap[fromMapName];
+		}
+		return toMap;
+	}
+
+	// Prepare a fresh parameter map for a server call
+	var jsSubmitParams = function(currentCallId){
+	    // get an associative array of just the values.
+	    var values = {};
+	    values[jsCallIdName] = currentCallId;
+	    values[jsSessionCookieName] = jsGetLoginSessionValue();
+	    return values;
+	}
+
+	// Prepare a parameter map for a server call using a form id from the DOM
+	var jsSubmitFormInputs = function(jqFormId, currentCallId){
+		// get all the inputs into an array.
+	    var inputs = jQuery(jqFormId).serializeArray();
+
+	    // get an associative array of just the values.
+	    var values = jsSubmitParams(currentCallId);
+	    jQuery.each(inputs, function(i, input){
+	        values[input.name] = jQuery(input).val();
+    	});
+	    return values;
+	}
+
+	// Submit a get request and register a call back handler for the response from the call
+	var jsSubmitGetRequestForCallId = function(callId, formAction, formParamsMap, formCallBack) {
+		// store the call back function
+		jsSetCallBackFunction(callId, formCallBack);
+		jQuery.getJSON(formAction+"?jsCallBack=?", formParamsMap, function(jsData) {
+			if (typeof jsData.jsCallId!="undefined") {
+				// get the call back function
+				callBackFunction = jsGetCallBackFunction(jsData.jsCallId);
+				if (typeof callBackFunction!="undefined") {
+					callBackFunction(jsData);
+				}
+			}
+		});
+	}
+
+	// Use a form id from the DOM to locate the form action and parameters to submit a form silently
+	var jsSubmitForm = function(formId, formCallBack) {
+		var jqFormId = "#" + formId;
+		var currentCallId = jsGetNextCallId();
+
+		// prepare the call param map
+		var formInputMap = jsSubmitFormInputs(jqFormId, currentCallId);
+
+		// prepare call action
+		var formInputAction = jQuery(jqFormId).attr("action");
+
+		// make the call
+		jsSubmitGetRequestForCallId(currentCallId, formInputAction, formInputMap, formCallBack);
+		return false;
+	}
+
+	// Submit a get request using a request url and parameter map
+	var jsSubmitGetRequestForUrl = function(requestUrl, requestParamsMap, requestCallBack) {
+
+		// setup call id
+		var currentCallId = jsGetNextCallId();
+
+		// prepare the call param map
+		var requestInputMap = jsSubmitParams(currentCallId);
+
+		// merge the parameters
+		jsMergeParams(requestInputMap, requestParamsMap);
+
+		// make the call
+		jsSubmitGetRequestForCallId(currentCallId, requestUrl, requestInputMap, requestCallBack);
+	}
+
+	// Reload auction updates from the registered auction reference list for the registered domain
+	var jsAuctionRefList = "";
+
+	var jsEnquiryName = "enquiryList";
+	var jsEnquiryId = "aucId";
+	var jsEnquiryRef = "aucRef";
+	var jsEnquiryBidHist = "aucBidHist";
+	var jsAuctionUpdateUri = "/iSynApp/viewAuction!listUpdates.action";
+	var jsReferenceTimeUri = "/iSynApp/viewAuction!referenceTime.action";
+
+	var jsAuctionUpdateHost = "";
+	var jsAuctionUpdateMillis = 0;
+	var jsAuctionRefereshCount = 0;
+	var jsAuctionRefereshIdx = 0;
+	var jsAuctionTriggerMillis = 0;
+	var jsTimerMillis = 1000;
+
+	var jsReferenceTimerMillis = 20000;
+	var jsReferenceTriggerMillis = 0;
+
+	var jsOffetMillis = 0;
+
+	var jsAucEndTimeMillisGMT = {};
+	var jsAucFinalStatus = {};
+	var jsAucRefMax = 0;
+
+	var jsTimerTick = function() {
+
+		// check if auction update is required
+		jsAuctionTriggerMillis = jsAuctionTriggerMillis + jsTimerMillis;
+		if (jsAuctionTriggerMillis > jsAuctionUpdateMillis) {
+			jsAuctionTriggerMillis = 0;
+			jsReloadAuctionUpdates();
+		}
+
+		// do reference time check
+		jsReferenceTriggerMillis = jsReferenceTriggerMillis + jsTimerMillis;
+		if (jsReferenceTriggerMillis > jsReferenceTimerMillis) {
+			jsReferenceTriggerMillis = 0;
+			jsReferenceTimeUpdates();
+		}
+
+		// show timer tick
+		if (jsAucRefMax > 0) {
+			var localCurrentMillis = new Date().getTime();
+			for (var jsAucRefIdx = 1; jsAucRefIdx <= jsAucRefMax; jsAucRefIdx++) {
+				var jqAucClosingMillisRef = "#Item" + jsAucRefIdx + "ClosingSec";
+				var jqAucFinalStatusRef = "#Item" + jsAucRefIdx + "FinalStatus";
+				var itemClosingMillis = jsAucEndTimeMillisGMT[jqAucClosingMillisRef];
+				var itemFinalStatus = jsAucFinalStatus[jqAucFinalStatusRef];
+				displayClosingSeconds = Math.floor((itemClosingMillis - localCurrentMillis - jsOffetMillis) / 1000);
+				jsProcessAuctionTick(jqAucClosingMillisRef, displayClosingSeconds, itemFinalStatus);
+			}
+		}
+
+		// check if another tick needs to be registered
+		if (jsAuctionRefereshIdx < jsAuctionRefereshCount) {
+			// re-register a timeout tick
+			jsAuctionRefereshIdx = jsAuctionRefereshIdx + 1;
+			// console.log("jsAuctionRefereshIdx:" + jsAuctionRefereshIdx + "; jsTimerMillis:" + jsTimerMillis + ";");
+			setTimeout(jsTimerTick, jsTimerMillis); // 1 second tick
+		}
+		else {
+			// show that auto refresh is complete, need to reenable if required
+			jQuery.magnificPopup.open({
+				items: {
+					src: '#livebid-note', // can be a HTML string, jQuery object, or CSS selector
+					type: 'inline'
+				},
+				preloader: false
+			});
+		}
+	}
+
+	// Process auction updates using the json data received from the call
+	var jsProcessReferenceTime = function(jsData) {
+
+		if (jsData.jsStatus == "success") {
+			if (typeof jsData.timeUpdate!="undefined") {
+				jsOffetMillis = jsData.timeUpdate.timeOffsetMillis;
+			}
+    	}
+
+	}
+
+	// Register a request to reload auction updates
+	var jsReferenceTimeUpdates = function() {
+
+		// prepare param map
+		var requestParamsMap = {};
+		requestParamsMap["timeClientMillis"] = new Date().getTime();
+
+		// make the call to get the time
+		var fullReferenceTimeUrl = jsAuctionUpdateHost + jsReferenceTimeUri;
+		jsSubmitGetRequestForUrl(fullReferenceTimeUrl, requestParamsMap, jsProcessReferenceTime);
+
+	}
+
+	var jsProcessAuctionUpdates;
+	var jsProcessAuctionTick;
+
+	// Register a request to reload auction updates
+	var jsReloadAuctionUpdates = function() {
+
+		// check if references are populated
+		if (typeof jsAuctionRefList=="undefined" || jsAuctionRefList=="") {
+			return;
+		}
+
+		// prepare param map
+		var requestParamsMap = {};
+		var pIdx = 0;
+
+		// prepare the reference array and iterate the DOM to load the values
+		var auctionRefArray = jsAuctionRefList.split(';');
+
+		jQuery.each(auctionRefArray, function(i, auctionRef){
+			var jqAucIdName = "#" + auctionRef + "AucId";
+			var jqAucIdValue = jQuery(jqAucIdName).val();
+
+			var jqBidHistValue = vafBidHistCount;
+			if (typeof jqAucIdValue!="undefined" && jqAucIdValue!="" && auctionRef!="") {
+				var elName = jsEnquiryName + "[" + pIdx + "].";
+				requestParamsMap[elName + jsEnquiryRef] = auctionRef;
+				requestParamsMap[elName + jsEnquiryId] = jqAucIdValue;
+				requestParamsMap[elName + jsEnquiryBidHist] = jqBidHistValue;
+				// prepare pIdx for the next
+				pIdx = pIdx + 1;
+			}
+    	});
+
+		// make the call to get the updates
+		var fullAuctionUpdateUrl = jsAuctionUpdateHost + jsAuctionUpdateUri;
+		jsSubmitGetRequestForUrl(fullAuctionUpdateUrl, requestParamsMap, jsProcessAuctionUpdates);
+
+	}
+
+	// Enable automatic auction updates
+	var jsEnableAuctionUpdates = function(auctionRefList, auctionUpdateHost, auctionUpdateMillis, auctionRefereshCount, processAuctionUpdates, processAuctionTick) {
+		jsAuctionRefList = auctionRefList;
+		jsAuctionUpdateHost = auctionUpdateHost;
+		jsAuctionUpdateMillis = auctionUpdateMillis;
+		jsAuctionRefereshCount = auctionRefereshCount;
+		jsAuctionRefereshIdx = 0;
+
+		if (jsAuctionUpdateMillis < 3000) {
+			jsAuctionUpdateMillis = 3000;
+		}
+
+		if (jsAuctionRefereshCount > 900) {
+			jsAuctionRefereshCount = 900;
+		}
+
+		jsProcessAuctionUpdates = processAuctionUpdates;
+		jsProcessAuctionTick = processAuctionTick;
+		jsReferenceTimeUpdates();
+		jsReloadAuctionUpdates();
+		jsTimerTick();
+	}
+
+	// Disable automatic auction updates
+	var jsDisableAuctionUpdates = function() {
+		jsProcessAuctionUpdates = 0;
+		jsProcessAuctionTick = 0;
+		jsAuctionRefereshCount = 0;
+		jsAuctionRefereshIdx = 0;
+	}
+
+</script>
+<script type="text/javascript" charset="utf-8">
+	// global constants
+	const TIMEOUT = 500;
+	const MAX_RESULTS = 8;
+	const ERR_MORE_CHARS =
+		'<ul><li tabindex="0"><strong>Type at least three characters to see results.</strong></li></ul>';
+	const ERR_DELAY = 'user has continued typing since last check';
+	const ERR_BAD_CHARS =
+		'<ul><li tabindex="0"><strong>Only letters and spaces permitted in search.</strong></li></ul>';
+
+	// utility function to fetch the JSON from the GET -> wraps a Promise
+	const getJsonFromReq = (fullUrl) => {
+		return new Promise((resolve, reject) => {
+			if (jQuery) {
+				jQuery.getJSON(fullUrl, (jsData) => {
+					if (jsData) {
+						resolve(jsData);
+					} else {
+						reject('undefined jsData');
+					}
+				});
+			} else {
+				reject('jQuery not initialized');
+			}
+		});
+	};
+
+	// utility function to check the input from the user -> wraps a Promise
+	const confirmInput = (searchTerm) => {
+		const pattern = new RegExp(/^[\w\s]*$/);
+		return new Promise((resolve, reject) => {
+			setTimeout(() => {
+				const currentTerm = document.getElementById('search_input').value;
+				if (searchTerm === currentTerm)
+					if (currentTerm.length < 3) reject(ERR_MORE_CHARS);
+					else if (!pattern.test(searchTerm)) reject(ERR_BAD_CHARS);
+					else {
+                          document.getElementById('search_input_add').value = currentTerm + "*"
+                        resolve(currentTerm);
+                    }
+				else reject(ERR_DELAY);
+			}, TIMEOUT);
+		});
+	};
+
+	// event listener on the search input field
+	window.onload = function () {
+		document
+			.getElementById('search_input')
+			.addEventListener('keyup', function (event) {
+				event.preventDefault();
+				if (event.keyCode === 13) {
+					document.getElementById('search_btn').click();
+				}
+				confirmInput(this.value)
+					.then((currentTerm) => {
+						startSearch(currentTerm);
+					})
+					.catch((err) => {
+						if (err === ERR_BAD_CHARS) placeHtml(err);
+						else if (err === ERR_MORE_CHARS) placeHtml(err);
+					});
+			});
+	};
+
+	// hide the results on a click out
+	jQuery(document).on('mouseup', function (e) {
+		var container = jQuery('#search_result, #search_input');
+		if (!container.is(e.target) && container.has(e.target).length === 0) {
+			jQuery('#search_results').hide();
+		}
+	});
+
+	// show the results on a click in
+	jQuery(document).on('mouseup', function (e) {
+		var container = jQuery('#search_result, #search_input');
+		if (container.is(e.target)) {
+			jQuery('#search_results').show();
+		}
+	});
+
+	// get the form paramets, push to the GTM data layer, and call the JSON prepper
+	function startSearch(searchTerm) {
+		var formParams = jQuery('#search_form').serialize();
+
+		setTimeout(function () {
+			dataLayer.push({
+				searchTerm: searchTerm,
+				formParams: formParams,
+				siteCode: 'mlbauction',
+				teamName: 'mlb',
+				event: 'liveSearch'
+			});
+		}, TIMEOUT);
+
+		prepJson(formParams);
+	}
+
+	// get the JSON ready for parsing
+	function prepJson(formParams) {
+		let json;
+		const searchType = document
+			.getElementById('search_type')
+			.getAttribute('value');
+
+		let bothFlow = false;
+		let action = '';
+		let parser = '';
+		if (searchType === 'auction') {
+			action = 'allAuction';
+			parser = 'auctionSearch';
+		} else if (searchType === 'product') {
+			action = 'allProduct';
+			parser = 'productSearch';
+		} else if (searchType === 'both') {
+			action = 'allAuction';
+			parser = 'auctionSearch';
+			bothFlow = true;
+		}
+
+		var requestUrl =
+			'https://auctions.f1authentics.com/iSynApp/' +
+			action +
+			'!jsSearch.action?jsViewName=' +
+			parser +
+			'&' +
+			formParams;
+
+		if (!bothFlow)
+			getJsonFromReq(requestUrl)
+				.then((result) => {
+					json = result;
+					placeHtml(parseJsonAsHtml(json, formParams));
+				})
+				.catch(() => {
+					return;
+				});
+		else {
+			getJsonFromReq(requestUrl)
+				.then((result) => {
+					json = result;
+					const requestUrl2 =
+						'https://auctions.f1authentics.com/iSynApp/allProduct!jsSearch.action?jsViewName=productSearch&' +
+						formParams;
+					getJsonFromReq(requestUrl2)
+						.then((result) => {
+							json.productData = result.productData;
+							placeHtml(parseJsonAsHtml(json, formParams));
+						})
+						.catch(() => {
+							return;
+						});
+				})
+				.catch(() => {
+					return;
+				});
+		}
+	}
+
+	// parse the JSON obj as HTML
+	function parseJsonAsHtml(jsonObj, formParams) {
+		let currentResultCnt = 0;
+		let html = '';
+
+		if (jsonObj && jsonObj.auctionData) {
+			if(jsonObj.auctionData.length>0){
+				html += '';
+			}
+			for (let nextRes of jsonObj.auctionData) {
+				html +=
+					'<li tabindex="' +
+					currentResultCnt +
+					'"><a href="https://auctions.f1authentics.com/iSynApp/auctionDisplay.action?sid=1103161&auctionId=' +
+					nextRes.prdId +
+					'"><div class="search-thumb"><img src="' +
+					nextRes.thumbUrl +
+					'"></div><div class="search-title"><h5>' +
+					nextRes.title +
+					'</h5><span class="search-current-bid">Current Bid: <span>&pound;' +
+					nextRes.price +
+					'</span></span></div></li>';
+				currentResultCnt++;
+				if (currentResultCnt >= MAX_RESULTS) break;
+			}
+		}
+
+		if (MAX_RESULTS > currentResultCnt && jsonObj && jsonObj.productData) {
+			if(jsonObj.productData.length>0){ 
+				html += '<h6>Buy Now</h6>';
+			}
+			for (let nextRes of jsonObj.productData) {
+				html +=
+					'<li tabindex="' +
+					currentResultCnt +
+					'"><a href="https://auctions.f1authentics.com/iSynApp/productDisplay.action?sid=1103161&productId=' +
+					nextRes.prdId +
+					'"><div class="search-thumb"><img src="' +
+					nextRes.thumbUrl +
+					'"></div><div class="search-title"><h5>' +
+					nextRes.title +
+					'</h5><span class="search-current-bid">Price: <span>&pound;' +
+					nextRes.price +
+					'</span></span></div></li>';
+				currentResultCnt++;
+				if (currentResultCnt >= MAX_RESULTS) break;
+			}
+		}
+
+		if (currentResultCnt === 0)
+			html = '<ul><li tabindex="0"><strong>No results.</strong></li></ul>';
+		else if (currentResultCnt === MAX_RESULTS) {
+			html +=
+				'<div><a href="https://auctions.f1authentics.com/iSynApp/allAuction.action?' +
+				formParams +
+				'">View More</a></div>';
+		}
+
+		html = '<ul>' + html + '</ul>';
+		return html;
+	}
+
+	// place the HTML on the page in the results div
+	function placeHtml(innerHtml) {
+		if (innerHtml) {
+			const current = document.getElementById('search_results').innerHTML;
+			jQuery('#search_results').show().html(innerHtml);
+		}
+	}
+</script>
+<script src="./index.js"></script>
+<script type="text/javascript"> _linkedin_partner_id = "3805962"; window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || []; window._linkedin_data_partner_ids.push(_linkedin_partner_id); </script><script type="text/javascript"> (function(l) { if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])}; window.lintrk.q=[]} var s = document.getElementsByTagName("script")[0]; var b = document.createElement("script"); b.type = "text/javascript";b.async = true; b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js"; s.parentNode.insertBefore(b, s);})(window.lintrk); </script> <noscript> <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=3805962&fmt=gif" /> </noscript>
+</body>
+</html>

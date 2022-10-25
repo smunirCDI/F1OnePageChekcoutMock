@@ -1,0 +1,218 @@
+.card {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 1px 6px 8px #00000017;
+    margin-bottom: 15px;
+    position: relative;
+}
+.disabled{
+    background-color: #dfdfdfb3;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px;
+
+}
+
+.myRow{
+    display: flex;
+}
+.headerNflVisaLogo{
+    width: 12%;
+    object-fit: contain;
+    padding: 0;
+    padding-left: 5px;
+}
+.d-flex {
+    display: flex;
+}
+.navVisaLogo{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+.justify-content-end{
+    justify-content: end;
+}
+.justify-content-spceBtwn{
+    justify-content: space-between;
+}
+.item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.shoppingInfo{
+    width: 56%;
+}
+.cart-container{
+    width: 42%;
+    min-height: 100vh;
+    /* border: 1px solid rgb(187, 255, 0); */
+    position: relative;
+}
+.cart-box{
+    /* border: 1px solid red; */
+    position: sticky;
+    top: 0;
+}
+.cart-items{
+    margin-bottom: 25px;
+}
+.item-image{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+.image-container{
+    position: relative;
+    margin-right: 10px;
+    width: 20%
+}
+.item-detail{
+    font-size: 1.6rem;
+    font-weight: lighter;
+    font-family: "Open sans",sans-serif,Helvetica;
+    width: 80%;
+}
+.item-detail h4 {
+    font-family: "F1",sans-serif;
+    font-size: 1.8rem;
+    margin-top: 0;
+    text-transform: uppercase;
+    color: black;
+}
+.itemQty{
+    background-color: #D50A0A;
+    padding: 12px;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    color: white;
+}
+.total-price{
+    margin-top: -20px;
+    background-color: #D50A0A;
+    color: white;
+    padding: 20px;
+    padding-bottom: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 1px 6px 8px #00000017;
+    font-size: 1.8rem;
+    font-weight: 700;
+    position: relative;
+}
+.submitBtn{
+    background-color: black;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.7rem;
+    font-weight: 700;
+    width: 100%;
+}
+.inactive{
+    background-color: #c2c2c2b8;
+    color: rgb(181, 181, 181);
+}
+.col-6 {
+    width: 48%;
+}
+.col-12 {
+    width: 100%;
+}
+.formRows {
+    margin-bottom: 30px;
+}
+.formRows label {
+    color: rgb(128, 128, 128);
+    font-weight: 500;
+    font-family: "Open sans",sans-serif,Helvetica;
+}
+.visaLogoSm{
+    height: 20px;
+}
+.cstmSelect{
+    padding: 13px;
+    border: 2px solid rgba(197, 197, 197, 0.265);
+    border-radius: 5px;
+    text-transform: uppercase;
+    text-align:center;
+    cursor: pointer;
+    background-color: rgb(222, 222, 222);
+    transition: .4s all;
+}
+.cstmSelect:hover{
+    background-color: white;
+}
+.selected{
+    border: 2px solid blue;
+    background-color: white;
+}
+.cstmSelect i {
+    color: #D50A0A;
+    font-size: 2rem;
+}
+.nflPrefers{
+    justify-content: center;
+    align-items: center;
+}
+.nflPrefers h4{
+    margin-top: 20px;
+    color: #1434cb;
+}
+
+.cstmNavBtnRow{
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+    position: absolute;
+    top: 0px;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+}
+.cstmNavBtnRow li {
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+}
+.cstmNavBtn{
+    background-color: rgb(59, 59, 59);
+    padding: 10px 20px;
+    color: white;
+    width: 200px;
+    text-align: center;
+    border: 1px solid transparent;
+}
+.cstmNavBtn:hover {
+    
+    background-color: rgb(223, 223, 223);
+    color: black;
+    border: 1px solid black;
+}
+.standMedButton {
+    font-weight: 600;
+    text-transform: capitalize;
+    color: #D50A0A !important;
+}
+.standMedButton a {
+    color: red;
+}
